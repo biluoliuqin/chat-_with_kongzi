@@ -1,0 +1,12 @@
+matplotlib
+librosa
+pygame
+flask_restful
+protobuf
+pynput
+mediapipe
+opencv_python
+Pillow
+pyanime4k
+pyvirtualcam
+gradio
