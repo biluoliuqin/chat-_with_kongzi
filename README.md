@@ -21,7 +21,7 @@
 
 3.  **语音交互**
     *   集成 **Whisper** 语音识别模型，支持用户语音输入。
-    *   通过 **GPT-SoVITS** 语音合成模型，将孔子回答转化为语音输出。
+    *   通过 **[biluo/KongZi](https://huggingface.co/biluo/KongZi/tree/main)** 语音合成模型，将孔子回答转化为语音输出。
 
 4.  **历史场景重现（文生视频）**
     *   采用 **文生视频（Text-to-Video）** 技术，根据用户提问播放相关历史场景视频。
