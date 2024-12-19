@@ -437,7 +437,7 @@ class MainWindow(QMainWindow):
                         'content': message['content']
                     })
                     # 每5轮对话左右触发一次视频,或匹配到了关键词
-                    if len(self.messages) % 10 == 0 or any(keyword in message['content'] for keyword in ["教", "韦编三绝", "讲学", "琴", "肉味", "诗书", "鼓", "礼", "孝", "政", "穷", "水", "逝者如斯夫", "陈蔡", "颜回", "列国", "齐", "峡谷", "故事", "经历", "讲", "听", "传承", "道德", "智慧", "哲理", "修行", "师", "言","子","学生","仁","智"]):
+                    if len(self.messages) % 2 == 0 or any(keyword in message['content'] for keyword in ["教", "韦编三绝", "讲学", "琴", "肉味", "诗书", "鼓", "礼", "孝", "政", "穷", "水", "逝者如斯夫", "陈蔡", "颜回", "列国", "齐", "峡谷", "故事", "经历", "讲", "听", "传承", "道德", "智慧", "哲理", "修行", "师", "言","子","学生","仁","智"]):
                         
                         # 将self.messages发送到API
                         url = "https://3923-115-24-186-34.ngrok-free.app/dify"
@@ -447,6 +447,7 @@ class MainWindow(QMainWindow):
                         print("发送的内容:", params)
                         response = requests.post(url, params=params)
                         ans = response.json().get('ans', '')
+                        print(ans)
                         # #先用Qchatbox显示ans
                         # print("对话结果:", ans)
 
@@ -459,6 +460,8 @@ class MainWindow(QMainWindow):
                                 for video_path in matched_videos:
                                     if os.path.exists(video_path):
                                         self.media_queue.add_video(video_path)
+                                    else:
+                                        self.media_queue.add_video(r"historys\none.mp4")
                                     
 
                         # # 获取当前队列中的视频
