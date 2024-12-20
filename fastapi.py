@@ -19,8 +19,8 @@ app.add_middleware(
 )
 
 # 配置服务地址
-OLLAMA_URL = "http://10.200.11.13:11434"  # ollama 默认端口
-GPTSOVITS_URL = "http://10.200.11.13:9888"
+OLLAMA_URL = "http://localhost:11434"  # ollama 默认端口
+GPTSOVITS_URL = "http://localhost:9888"
 
 @app.get("/v1/tts")
 async def text_to_speech(
@@ -143,7 +143,7 @@ async def transcribe_audio(
             }
             
             response = await client.post(
-                "http://10.200.11.13:9997/v1/audio/transcriptions",
+                "http://localhost:9997/v1/audio/transcriptions",
                 files=files,
                 data=data,
                 timeout=30.0
@@ -161,7 +161,7 @@ async def forward_to_dify(messages: str):
     转发请求到指定的 Dify 服务
     """
     API_KEY = 'app-6KsAaVW2aGiYohUh5z1kVmzs'
-    url = 'http://10.200.11.13/v1/workflows/run'
+    url = 'http://localhost/v1/workflows/run'
     headers = {
         'Authorization': f'Bearer {API_KEY}',
         'Content-Type': 'application/json'
